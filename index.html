@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>FutisKortit — Feikki League</title>
+<style>
+:root{--bg:#07131b;--panel:#10242e;--panel2:#16313b;--line:#2b4a54;--text:#f2f8f8;--muted:#a9c1c5;--lime:#c7ff5e;--cyan:#5ce1d2;--red:#ff7d8a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#153540 0,#07131b 60%);background-color:#07131b;color:var(--text);font:16px system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:12px 16px;font-weight:800;background:var(--lime);color:#14200c}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#24434d;color:var(--text);border:1px solid #3a5a64}.danger{background:#542b36;color:#ffe5e8}.wrap{max-width:1050px;margin:auto;padding:18px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.logo{font-weight:1000;font-size:clamp(21px,4vw,32px);letter-spacing:-1px}.logo span{color:var(--lime)}.pill{border:1px solid var(--line);background:#10242e;border-radius:999px;padding:8px 12px;color:var(--muted);font-size:13px}.panel{background:linear-gradient(145deg,#122a34,#0d2029);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 12px 35px #0002}.hidden{display:none!important}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.hero{padding:clamp(20px,5vw,42px);margin-bottom:16px;background:linear-gradient(120deg,#1b4548,#102832 70%);position:relative;overflow:hidden}.hero:after{content:"⚽";position:absolute;right:20px;bottom:-38px;font-size:150px;opacity:.08}.eyebrow{color:var(--lime);text-transform:uppercase;font-size:12px;font-weight:900;letter-spacing:2px}h1{font-size:clamp(28px,6vw,46px);line-height:1.05;margin:10px 0}h2{margin:0 0 12px;font-size:22px}p{color:var(--muted);line-height:1.5}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.field{display:grid;gap:6px}.field label{color:var(--muted);font-size:13px;font-weight:700}.field input,.field select{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#081820;color:var(--text);outline:none}.field input:focus{border-color:var(--lime)}.error{color:var(--red);min-height:20px;font-size:13px}.menuBtns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.menuBtns button{min-height:58px}.statline{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.gamearea{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:12px;align-items:stretch}.side{background:#0b1d25;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}.side strong{display:block;font-size:20px}.side small{color:var(--muted)}.arena{background:radial-gradient(ellipse,#205449,#0c292c);border:2px solid #386e59;border-radius:18px;padding:14px;text-align:center;min-height:220px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px}.football{font-size:32px}.card{width:100%;max-width:220px;margin:auto;border-radius:15px;padding:12px;border:2px solid #d4e5bc;background:linear-gradient(155deg,#f1f5dc,#b5d9a0);color:#142b22;text-align:left;position:relative;overflow:hidden;min-height:185px;box-shadow:0 8px 18px #0003}.card:before{content:"";position:absolute;width:100px;height:100px;border-radius:50%;right:-35px;top:-28px;background:#6bba7a33}.card .league{font-size:9px;letter-spacing:1px;font-weight:1000;opacity:.7}.card .badge{font-size:32px;margin:6px 0}.card .name{font-weight:1000;font-size:18px;line-height:1.05;position:relative}.card .club{font-size:11px;opacity:.75;margin:5px 0 10px}.card .value{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #315c3f55;padding-top:7px;font-weight:900}.card .value b{font-size:24px}.hand{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}.hand .card{min-height:140px;padding:9px;cursor:pointer;transition:transform .15s,border-color .15s}.hand .card:hover{transform:translateY(-5px);border-color:var(--lime)}.hand .card .badge{font-size:22px;margin:4px 0}.hand .card .name{font-size:13px}.hand .card .club{font-size:10px;margin-bottom:6px}.hand .card .value b{font-size:19px}.hand .card.selected{outline:3px solid var(--lime);transform:translateY(-5px)}.section{margin-top:14px}.log{min-height:42px;background:#081820;border-radius:12px;padding:12px;color:var(--muted);font-size:14px}.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.rule{background:#0b1d25;border:1px solid var(--line);border-radius:14px;padding:14px;color:var(--muted);line-height:1.45}.rule b{display:block;margin-bottom:5px;color:var(--text)}.queuePulse{width:8px;height:8px;display:inline-block;background:var(--lime);border-radius:50%;box-shadow:0 0 12px var(--lime);margin-right:8px}.small{font-size:12px;color:var(--muted)}.foot{color:#76959b;font-size:12px;text-align:center;padding:22px 0}
+@media(max-width:650px){.wrap{padding:12px}.grid,.rules{grid-template-columns:1fr}.menuBtns{grid-template-columns:1fr}.gamearea{grid-template-columns:1fr 1.2fr 1fr;gap:6px}.side{padding:8px 4px}.side strong{font-size:16px}.arena{padding:8px;min-height:190px}.card{padding:8px;min-height:160px}.card .name{font-size:15px}.card .badge{font-size:26px}.hand{grid-template-columns:repeat(3,minmax(0,1fr))}.hand .card{min-height:125px}.top{align-items:flex-start}}
+.card.legend{background:linear-gradient(155deg,#fff3c4,#f2c14e);border-color:#ffe28a}.card.legend:before{background:#fff8}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#5ef08a;box-shadow:0 0 10px #5ef08a;animation:pulse 1.6s infinite}@keyframes pulse{50%{opacity:.35}}#onlinePill{display:inline-flex;align-items:center;gap:7px}#onlinePill b{color:var(--text)}.upd{padding-left:20px;margin:0}.upd li{margin:10px 0;color:var(--muted);line-height:1.45}.upd b{color:var(--text)}
+</style>
+</head>
+<body><div class="wrap">
+<header class="top"><div class="logo">⚽ FUTIS<span>KORTIT</span></div><div class="row" style="gap:8px;justify-content:flex-end"><div id="onlinePill" class="pill" title="Pelaajat, jotka ovat avanneet pelin juuri nyt. Botteja ei lasketa."><span class="dot"></span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Players online: <b id="onlineCount">–</b></span></div><div id="userPill" class="pill">Ei kirjauduttu</div></div></header>
+<section id="loginView" class="panel hero">
+ <div class="eyebrow">Feikki League · korttipeli</div><h1>Rakenna kätesi.<br>Voita vastustaja.</h1>
+ <p>Luo pelinimi ja aloita. Keräilyssä on 108 täysin keksittyä futiskorttia — jokaisella oma arvo.</p>
+ <div class="grid">
+  <div class="field"><label for="username">Pelinimi (1–12 merkkiä)</label><input id="username" maxlength="12" autocomplete="nickname" placeholder="Esim. GoalKing7"></div>
+  <div class="field"><label for="avatar">Tunnus</label><select id="avatar"><option>⚽</option><option>🦊</option><option>🐺</option><option>🦁</option><option>🐉</option><option>🦈</option></select></div>
+ </div><div id="loginError" class="error"></div><button id="loginBtn">Luo käyttäjä ja jatka</button>
+ <div class="small" style="margin-top:10px">Nimi tarkistetaan sääntöjen ja yleisten asiattomien sanojen varalta. Käyttäjä säilyy tällä laitteella.</div>
+</section>
+<section id="menuView" class="hidden">
+ <div class="panel hero"><div class="eyebrow">Tervetuloa takaisin</div><h1 id="welcome">Peli alkaa tästä.</h1><p>Valitse vastustaja tai katso pelin säännöt.</p><div class="statline"><span class="pill">🃏 108 uniikkia korttia</span><span class="pill">🎮 1v1</span><span class="pill">📱 Mobiiliystävällinen</span></div>
+ <div class="menuBtns"><button id="easyBtn">Pelaa AI:ta · Easy</button><button id="mediumBtn">Pelaa AI:ta · Medium</button><button id="hardBtn">Pelaa AI:ta · Hard</button></div>
+ <div class="menuBtns"><button class="secondary" id="queueBtn">🌐 Etsi pelaaja</button><button class="secondary" id="rulesBtn">📖 Säännöt</button><button class="secondary" id="collectionBtn">🗂️ Korttikokoelma</button></div><div class="menuBtns" style="grid-template-columns:1fr"><button class="secondary" id="updateBtn">🆕 Päivitys 1.1 · Legendat saapuvat</button></div></div>
+ <div id="queuePanel" class="panel hidden section"><div class="row"><h2>Online Queue</h2><span class="pill"><span class="queuePulse"></span>Queue</span></div><p id="queueText">Etsitään vastustajaa...</p><div class="row"><button class="secondary" id="cancelQueue">Peruuta haku</button><button id="queuePractice">Pelaa AI:ta odottaessa</button></div><p class="small">Huom: jonossa on toistaiseksi yksi Botti, joka toimii vastustajana. Oikeat pelaajat vaativat erillisen pelipalvelimen.</p></div>
+</section>
+<section id="rulesView" class="panel hidden"><div class="row"><h2>Pelin säännöt</h2><button class="secondary" id="rulesBack">← Takaisin</button></div><div class="rules">
+ <div class="rule"><b>1. Jako</b><span>Otteluun valitaan 27 korttia. Molemmille jaetaan 13, ja yksi jää sivuun. Käteen tulee 5 korttia, loput 8 ovat nostopakassa. Aloittaja arvotaan.</span></div>
+ <div class="rule"><b>2. Pöytäkortti ja haaste</b><span>Tyhjälle pöydälle pelataan yksi kortti. Vastustaja haastaa sen omalla kortillaan.</span></div>
+ <div class="rule"><b>3. Suurempi arvo voittaa</b><span>Voittaja saa pisteen. Jos haastaja voittaa, hänen korttinsa jää pöydälle ja vastustaja haastaa sen. Jos haastaja häviää, hänen korttinsa poistuu ja hän yrittää uudella kortilla. Et koskaan pelaa omaa korttiasi vastaan.</span></div>
+ <div class="rule"><b>4. Kolmen voiton sääntö</b><span>Kortti, joka on voittanut 3 kertaa, poistuu pelistä. Sen omistaja pelaa tilalle uuden kortin kädestään.</span></div>
+ <div class="rule"><b>5. Tasapeli</b><span>Molemmat kortit poistuvat. Pöydällä olleen kortin omistaja pelaa uuden kortin.</span></div>
+ <div class="rule"><b>6. Ottelun loppu</b><span>Ottelu päättyy, kun pelaaja, jonka vuoro on, jää ilman kortteja. Eniten voittoja kerännyt voittaa.</span></div>
+ </div></section>
+<section id="updateView" class="panel hidden"><div class="row"><h2>Päivitys 1.1 · Legendat saapuvat</h2><button class="secondary" id="updateBack">← Takaisin</button></div><ul class="upd">
+ <li><b>🃏 36 uutta korttia.</b> Kortteja on nyt 108, ja uusissa korteissa on merkintä UUSI.</li>
+ <li><b>👑 LEGEND-harvinaisuus.</b> Kultaiset kortit ovat kovimpia pelaajia.</li>
+ <li><b>🟢 Players online -mittari.</b> Näet, montako oikeaa pelaajaa on pelissä juuri nyt. Botteja ei lasketa.</li>
+ <li><b>🤖 Botti jonossa.</b> "Etsi pelaaja" löytää vastustajaksi botin.</li>
+ <li><b>⚖️ Reilumpi peli.</b> Haastaja jatkaa häviön jälkeen, eikä pelaa omaa korttiaan vastaan. Kolme kertaa voittanut kortti poistuu pelistä.</li>
+ <li><b>🎲 Aloittaja arvotaan.</b> Kumpikin voi aloittaa ottelun.</li></ul></section>
+<section id="collectionView" class="panel hidden"><div class="row"><h2>Korttikokoelma</h2><button class="secondary" id="collectionBack">← Takaisin</button></div><p>108 keksittyä pelaajaa, joista 36 uutta. Kortit sekoitetaan ottelun alussa.</p><div id="collectionGrid" class="hand"></div></section>
+<section id="gameView" class="hidden">
+ <div class="row" style="margin:8px 0 12px"><div><div class="eyebrow" id="difficultyLabel">AI-ottelu</div><h2 id="turnLabel" style="margin:4px 0">Sinun vuorosi</h2></div><button class="secondary" id="quitGame">✕ Lopeta</button></div>
+ <div class="gamearea">
+  <div class="side"><div style="font-size:25px">🤖</div><strong id="aiName">AI</strong><small>Vastustaja</small><div class="section small">Kädessä <b id="aiHandCount">5</b></div><div class="small">Voitot <b id="aiWins">0</b></div></div>
+  <div class="arena"><div class="small">PÖYDÄLLÄ</div><div id="tableCard" class="football">⚽</div><div id="arenaMessage" class="small">Pelaa ensimmäinen kortti!</div></div>
+  <div class="side"><div id="playerAvatar" style="font-size:25px">⚽</div><strong id="playerName">Sinä</strong><small>Sinä</small><div class="section small">Kädessä <b id="playerHandCount">5</b></div><div class="small">Voitot <b id="playerWins">0</b></div></div>
+ </div>
+ <div class="section row"><h2 style="margin:0">Omat kortit</h2><span class="pill" id="deckInfo">Nostopakassa 8</span></div>
+ <div id="handGrid" class="hand"></div>
+ <div class="section row"><button id="playBtn" disabled>⚡ Pelaa valittu kortti</button><button class="secondary" id="sortBtn">Järjestä arvon mukaan</button></div>
+ <div class="section log" id="gameLog">Valitse kortti kädestäsi.</div>
+</section>
+<section id="resultView" class="panel hidden"><div class="eyebrow">Ottelu päättynyt</div><h1 id="resultTitle">Voitto!</h1><p id="resultText"></p><div class="row"><button id="rematchBtn">Pelaa uudelleen</button><button class="secondary" id="resultMenuBtn">Takaisin menuun</button></div></section>
+<div class="foot">FEIKKI LEAGUE · v1.1 · Faniteos / kaikki pelaajat ja seurat ovat keksittyjä.</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const clubs=["Neon City FC","Northvale United","Aurora Rovers","Kingsport 09","Redbridge Athletic","Bluepeak SC","Ironfield FC","Lakeside Town","Stormhaven","Westmoor City","Solaris FC","Eastford Rangers"];
+const first=["Leo","Mika","Dario","Niko","Alex","Rafa","Timo","Sami","Luka","Elias","Noah","Oskar","Ivo","Mateo","Joni","Theo","Aron","Milo","Jasper","Enzo","Kasper","Robin","Felix","Anton","Riku","Eero","Ari","Dante","Miro","Toni","Kian","Otto","Jules","Aapo","Remy","Bruno"];
+const last=["Vire","Kallio","Storm","Vale","Rex","Lumo","Falk","Nero","Sol","Ranta","Kivi","Blaze","Meri","Lind","Voss","Aalto","Kross","Nyman","Roux","Salo","Frost","Laine","Nova","Berg","Kane","Myrsky","Vega","Rossi","Korp","Silva","Drake","Lennox","Täht","Rinne","Wolf","Marek"];
+const emblems=["⚡","🦊","🦁","🐺","🦅","🐉","🦈","🌪️","🔥","⭐","🛡️","🌙"];
+const cards=[];
+for(let i=0;i<72;i++){
+ let name=first[i%first.length]+" "+last[(i*7+Math.floor(i/first.length)*3)%last.length];
+ let value=48+((i*37+Math.floor(i/5)*13)%213);
+ cards.push({id:i,name,club:clubs[(i*5+Math.floor(i/4))%clubs.length],value,emblem:emblems[(i*3+Math.floor(i/6))%emblems.length],rarity:value>=220?"ELITE":value>=175?"STAR":value>=120?"PRO":"ROOKIE"});
+}
+const newFirst=["Kaito","Zane","Viktor","Santi","Lauri","Bastian","Ilmari","Tobias","Yuri","Hugo","Ossi","Amir"];
+const newLast=["Pyry","Hawk","Sterling","Moreno","Tuuli","Vandal","Ilves","Orion","Kuura","Falco","Rask","Zephyr"];
+const newClubs=["Crystal Harbor","Polar Express FC","Sunset Wanderers","Thunderpeak"];
+const newEmblems=["🚀","👑","💎","🌊"];
+for(let j=0;j<36;j++){
+ const value=140+((j*53)%131);
+ cards.push({id:72+j,name:newFirst[j%12]+" "+newLast[(j*5+Math.floor(j/12))%12],club:newClubs[(j*3+Math.floor(j/4))%4],value,emblem:newEmblems[(j*7+Math.floor(j/3))%4],rarity:value>=250?"LEGEND":value>=220?"ELITE":value>=175?"STAR":"PRO",isNew:true});
+}
+const badWords=["fuck","shit","bitch","asshole","bastard","cunt","dick","pussy","nigger","nigga","retard","whore","slut","fag","kike","heilhitler","nazi","pedo","rape","killyourself","vittu","paska","perkele","saatana","helvetti","kusipaa","kusi","huora","narttu","vitun","pillu","runkkari","neekeri"];
+function normalizeName(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[013457@$!|]/g,c=>({"0":"o","1":"i","3":"e","4":"a","5":"s","7":"t","@":"a","$":"s","!":"i","|":"i"}[c]||c)).replace(/[^a-z]/g,"")}
+function validateName(raw){
+ if(!raw||raw.length<1||raw.length>12)return "Nimen pitää olla 1–12 merkkiä.";
+ if(!/^[A-Za-z0-9_-]+$/.test(raw))return "Vain kirjaimet, numerot, _ ja - ovat sallittuja.";
+ if((raw.match(/[0-9]/g)||[]).length>3)return "Nimessä saa olla enintään 3 numeroa.";
+ const n=normalizeName(raw);
+ if(badWords.some(w=>n.includes(normalizeName(w))))return "Tuo nimi ei ole sallittu. Kokeile toista nimeä.";
+ if(!/[A-Za-z]/.test(raw))return "Nimessä pitää olla vähintään yksi kirjain.";
+ return "";
+}
+let lastOpp=null,profile=null,game=null,selected=null,lastDifficulty="Medium",queueTimer=null;
+function show(view){["loginView","menuView","rulesView","collectionView","gameView","resultView","updateView"].forEach(v=>$ (v).classList.toggle("hidden",v!==view))}
+function cardHTML(c,idx,selectable=false){return `<div class="card ${c.rarity==="LEGEND"?"legend":""} ${selectable&&selected===idx?"selected":""}" ${selectable?`data-idx="${idx}" role="button" tabindex="0"`:""}><div class="league">FEIKKI LEAGUE · ${c.rarity}${c.isNew?" · UUSI":""}</div><div class="badge">${c.emblem}</div><div class="name">${c.name}</div><div class="club">${c.club}${c.wins?` · 🔥 ${c.wins}/3 voittoa`:""}</div><div class="value"><span>ARVO</span><b>${c.value}</b></div></div>`}
+$("loginBtn").onclick=()=>{
+ const raw=$("username").value.trim(),err=validateName(raw);
+ if(err){$("loginError").textContent=err;return}
+ profile={name:raw,avatar:$("avatar").value};
+ try{localStorage.setItem("feikkiProfile",JSON.stringify(profile))}catch(e){}
+ enterMenu();
+};
+$("username").addEventListener("keydown",e=>{if(e.key==="Enter")$("loginBtn").click()});
+function enterMenu(){if(!profile){show("loginView");return}clearQueue();$("userPill").textContent=profile.avatar+" "+profile.name;$("welcome").textContent="Tervetuloa, "+profile.name+"!";show("menuView")}
+try{
+  const p=JSON.parse(localStorage.getItem("feikkiProfile")||"null");
+  if(p&&p.name&&!validateName(p.name)){
+    profile=p;
+    enterMenu();
+  } else {
+    const names=["GoalKing7","RookieX","FoxAce","BlueWolves","StormPride","Captain16","LimeBolt","SkyRanger","VikingGoal","TurboMid"];
+    const avatars=["⚽","🦊","🐺","🦁","🐉","🦈"];
+    const autoName = names[Math.floor(Math.random()*names.length)] + String(Math.floor(Math.random()*90+10));
+    profile={name:autoName, avatar:avatars[Math.floor(Math.random()*avatars.length)]};
+    try{localStorage.setItem("feikkiProfile",JSON.stringify(profile));}catch(e){}
+    enterMenu();
+  }
+}catch(e){
+  profile={name:"Guest"+Math.floor(Math.random()*900+100),avatar:"⚽"};
+  try{localStorage.setItem("feikkiProfile",JSON.stringify(profile))}catch(e){}
+  enterMenu();
+}
+$("updateBtn").onclick=()=>show("updateView");$("updateBack").onclick=enterMenu;$("rulesBtn").onclick=()=>show("rulesView");$("rulesBack").onclick=enterMenu;
+$("collectionBtn").onclick=()=>{$("collectionGrid").innerHTML=cards.map(c=>cardHTML(c)).join("");show("collectionView")};$("collectionBack").onclick=enterMenu;
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+let aiTimer=null;
+function nameOf(side){return side==="player"?profile.name:$("aiName").textContent}
+function startGame(diff,oppName){
+ lastDifficulty=diff;lastOpp=oppName;clearQueue();clearTimeout(aiTimer);
+ const deck=shuffle(cards).slice(0,27).map(c=>({...c,wins:0}));
+ const p=deck.slice(0,13),a=deck.slice(13,26),starter=Math.random()<.5?"player":"ai";
+ game={diff,playerHand:p.slice(0,5),playerDeck:p.slice(5),aiHand:a.slice(0,5),aiDeck:a.slice(5),table:null,tableOwner:null,turn:starter,pWins:0,aWins:0,ended:false};
+ selected=null;
+ $("difficultyLabel").textContent="AI-OTTELU · "+diff.toUpperCase();
+ $("aiName").textContent=oppName||(diff==="Easy"?"Harjoitusbot":diff==="Medium"?"Taktiikka-AI":"Elite AI");
+ $("playerName").textContent=profile.name;$("playerAvatar").textContent=profile.avatar;
+ show("gameView");
+ log(starter==="player"?"Ottelu alkoi! Sinä aloitat: pelaa ensimmäinen kortti.":"Ottelu alkoi! Vastustaja aloittaa.");
+ renderGame();
+ if(starter==="ai")aiTimer=setTimeout(aiTurn,800);
+}
+function log(t){$("gameLog").textContent=t}
+function draw(side){let h=side==="player"?game.playerHand:game.aiHand,d=side==="player"?game.playerDeck:game.aiDeck;while(h.length<5&&d.length)h.push(d.pop())}
+function renderGame(){
+ $("playerHandCount").textContent=game.playerHand.length;$("aiHandCount").textContent=game.aiHand.length;$("playerWins").textContent=game.pWins;$("aiWins").textContent=game.aWins;$("deckInfo").textContent="Nostopakassa "+game.playerDeck.length;
+ $("tableCard").innerHTML=game.table?cardHTML(game.table):"⚽";
+ $("arenaMessage").textContent=game.table?`${game.tableOwner==="player"?"Sinun":"Vastustajan"} kortti · arvo ${game.table.value}`:"Pöytä on tyhjä";
+ const mine=game.turn==="player";
+ $("turnLabel").textContent=!mine?"Vastustajan vuoro":(game.table?"Sinun vuorosi: voita pöydän kortti":"Sinun vuorosi: pelaa uusi kortti");
+ $("handGrid").innerHTML=game.playerHand.map((c,i)=>cardHTML(c,i,true)).join("");
+ $("handGrid").querySelectorAll(".card").forEach(el=>{el.onclick=()=>{if(game.turn!=="player")return;selected=Number(el.dataset.idx);renderGame()};el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();el.click()}}});
+ $("playBtn").disabled=!mine||selected===null||!game.playerHand[selected];
+}
+function playPlayer(){
+ if(!game||game.ended||game.turn!=="player"||selected===null)return;
+ const c=game.playerHand.splice(selected,1)[0];selected=null;
+ playCard("player",c);afterPlay();
+}
+function playCard(side,c){
+ const other=side==="player"?"ai":"player",who=nameOf(side),sc=s=>s==="player"?"pWins":"aWins";
+ if(!game.table){game.table=c;game.tableOwner=side;game.turn=other;log(`${who} pelasi ${c.name} (${c.value}). Kortti jäi pöydälle.`);return}
+ const old=game.table;
+ if(c.value>old.value){
+  game[sc(side)]++;c.wins=1;game.table=c;game.tableOwner=side;game.turn=other;
+  log(`${c.name} (${c.value}) voittaa kortin ${old.name} (${old.value})! Voittava kortti jää pöydälle (1/3 voittoa).`);
+ }else if(c.value<old.value){
+  game[sc(other)]++;old.wins=(old.wins||0)+1;
+  if(old.wins>=3){
+   log(`${old.name} voitti 3 kertaa ja poistuu pelistä! ${nameOf(other)} pelaa tilalle uuden kortin.`);
+   game.table=null;game.tableOwner=null;game.turn=other;
+  }else{
+   log(`${c.name} (${c.value}) häviää kortille ${old.name} (${old.value}). ${who} jatkaa uudella kortilla.`);
+   game.turn=side;
+  }
+ }else{
+  log(`Tasapeli (${c.value}): molemmat kortit poistuvat. ${nameOf(other)} pelaa uuden kortin.`);
+  game.table=null;game.tableOwner=null;game.turn=other;
+ }
+}
+function afterPlay(){
+ draw("player");draw("ai");
+ if(checkEnd())return;
+ selected=null;renderGame();
+ if(game.turn==="ai"){clearTimeout(aiTimer);aiTimer=setTimeout(aiTurn,800)}
+}
+function aiTurn(){
+ if(!game||game.ended||game.turn!=="ai")return;
+ const h=game.aiHand,table=game.table;
+ if(!h.length){checkEnd();return}
+ const sorted=h.map((c,i)=>({c,i})).sort((a,b)=>a.c.value-b.c.value);
+ const rnd=()=>sorted[Math.floor(Math.random()*sorted.length)].i;
+ let idx;
+ if(!table){idx=game.diff==="Easy"?rnd():game.diff==="Medium"?sorted[Math.floor(sorted.length/2)].i:sorted[sorted.length-1].i}
+ else if(game.diff==="Easy")idx=rnd();
+ else{const wins=sorted.filter(x=>x.c.value>table.value);idx=(wins.length?wins[0]:sorted[0]).i;if(game.diff==="Medium"&&Math.random()<.2)idx=rnd()}
+ const c=h.splice(idx,1)[0];playCard("ai",c);afterPlay();
+}
+function checkEnd(){
+ const h=game.turn==="player"?game.playerHand:game.aiHand;
+ if(h.length>0)return false;
+ game.ended=true;const pw=game.pWins,aw=game.aWins;show("resultView");
+ $("resultTitle").textContent=pw>aw?"🏆 Voitto!":pw<aw?"🤖 Vastustaja voitti":"🤝 Tasapeli!";
+ $("resultText").textContent=`${game.turn==="player"?"Sinulta":"Vastustajalta"} loppuivat kortit. ${profile.name}: ${pw} voittoa · ${nameOf("ai")}: ${aw} voittoa. ${pw===aw?"Tasainen ottelu!":pw>aw?"Hieno peli!":"Kokeile uudelleen ja säästä vahvat kortit."}`;
+ return true;
+}
+function clearQueue(){if(queueTimer){clearTimeout(queueTimer);queueTimer=null}$("queuePanel").classList.add("hidden")}
+$("playBtn").onclick=playPlayer;
+$("sortBtn").onclick=()=>{if(!game)return;game.playerHand.sort((a,b)=>b.value-a.value);selected=null;renderGame()};
+$("quitGame").onclick=()=>{game=null;enterMenu()};
+$("rematchBtn").onclick=()=>startGame(lastDifficulty,lastOpp);
+$("resultMenuBtn").onclick=()=>{game=null;enterMenu()};
+$("easyBtn").onclick=()=>startGame("Easy");
+$("mediumBtn").onclick=()=>startGame("Medium");
+$("hardBtn").onclick=()=>startGame("Hard");
+$("queueBtn").onclick=()=>{$("queuePanel").classList.remove("hidden");$("queueText").textContent="Etsitään vastustajaa...";clearTimeout(queueTimer);queueTimer=setTimeout(()=>{$("queueText").textContent="Vastustaja löytyi: 🤖 Botti-Ville (Bot). Ottelu alkaa...";queueTimer=setTimeout(()=>startGame("Medium","🤖 Botti-Ville"),1500)},3000)};
+$("cancelQueue").onclick=clearQueue;
+$("queuePractice").onclick=()=>startGame("Medium");
+(async()=>{
+ try{
+  if(!window.claude||!window.claude.use)return;
+  const room=await window.claude.use("room");
+  if(!room)return;
+  const upd=()=>{$("onlineCount").textContent=room.peers().filter(p=>p.kind==="viewer").length};
+  room.onPeers(upd);upd();
+ }catch(e){}
+})();
+</script>
+</body>
+</html>
